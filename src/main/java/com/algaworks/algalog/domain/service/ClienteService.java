@@ -32,4 +32,9 @@ public class ClienteService {
 	public void excluir(Long clientId) {
 		clienteRepository.deleteById(clientId);
 	}
+	
+	public Cliente buscar (Long clienteId) {
+		return clienteRepository.findById(clienteId)
+				.orElseThrow(() -> new NegocioException("Cliente não encontrado"));
+	}
 }
